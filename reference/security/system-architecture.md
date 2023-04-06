@@ -13,21 +13,14 @@ Ockam is a suite of tools and services which can be used to build systems suppor
 
 While Ockam can be used in a variety of use cases we are presenting here one use case which highlights some major security claims:
 
-- [create secure communications with a private database](../examples/create-secure-communication-with-a-private-database-from-anywhere.md) (please refer to the linked example to get a more detailed presentation)
+- [create secure communications with a private database](../../guides/examples/create-secure-communication-with-a-private-database-from-anywhere.md) (please refer to the linked example to get a more detailed presentation)
+
+<figure><img src="./diagrams/private-database-access.png" alt=""><figcaption></figcaption></figure>
 
 ## Private database access
 
 That example shows how securely allow client to access the database, without having to expose any of the database port to the internet. 
 Here is a simplified view of the communications when the client sends a message to the database in the scenario above:
-
-```mermaid
-sequenceDiagram
-    autonumber
-    client ->> client_sidecar_inlet: tcp_select_from_users
-    client_sidecar_inlet ->> Orchestrator forwarder: ockam_select_from_users
-    Orchestrator forwarder ->> db_sidecar_tcp_outlet: ockam_select_from_users
-    db_sidecar_tcp_outlet ->> database: tcp_select_from_users
-```
 
 ### Processes
 
@@ -83,7 +76,7 @@ For a more detailed presentation of the routing protocol and the workers system 
 
 ### The `ockam_transport_tcp` crate (`ockam_transport_udp` etc...)
 
-This functionality provided by this crate is presented in ["TCP transport"](../../reference/libraries/rust/internal/tcp-transport.md).
+This functionality provided by this crate is presented in ["TCP transport"](../../reference/libraries/rust/internals/tcp_transport.md).
 
 ### The `ockam_vault` crate
 

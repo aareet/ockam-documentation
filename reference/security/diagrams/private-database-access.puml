@@ -1,0 +1,11 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+client -> client_sidecar_inlet: tcp_select_from_users
+client_sidecar_inlet -> "Orchestrator forwarder": ockam_select_from_users
+"Orchestrator forwarder" -> db_sidecar_tcp_outlet: ockam_select_from_users
+db_sidecar_tcp_outlet -> database: tcp_select_from_users
+
+@enduml
